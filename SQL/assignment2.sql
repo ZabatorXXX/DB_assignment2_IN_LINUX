@@ -28,6 +28,9 @@ CREATE TABLE locations (
   	PRIMARY KEY (location_id)
 );
 
+CREATE TRIGGER trigger_upper BEFORE INSERT ON locations FOR EACH ROW
+SET NEW.country = UPPER(NEW.country);
+
 /*DESCRIBE locations;*/
 
 insert into locations (country, address, str_number) values ('se', 'Vimmerbygatan', 20);
